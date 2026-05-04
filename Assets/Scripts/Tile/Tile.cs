@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
     public TerrainData Terrain { get; private set; }
     public Unit Occupant { get; private set; }
 
+    public Trap Trap { get; private set; }
+
     public bool IsWalkable =>
         Terrain.IsWalkable && Occupant == null;
 
@@ -21,4 +23,10 @@ public class Tile : MonoBehaviour
     {
         Occupant = unit;
     }
+
+    public void SetTrap(Trap trap)
+    {
+        Trap = trap;
+    }
+
 }

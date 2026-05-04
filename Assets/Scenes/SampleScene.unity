@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1437080941}
   terrainDatabase: {fileID: 11400000, guid: ebd1908549f022148be54dec3c709680, type: 2}
+  trapDatabase: {fileID: 11400000, guid: df761fb9852ba854e830425aaf29b712, type: 2}
+  trapChance: 0.1
 --- !u!4 &307505779
 Transform:
   m_ObjectHideFlags: 0

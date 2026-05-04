@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8585057200689571552}
   - component: {fileID: 1962665077748694673}
   m_Layer: 0
-  m_Name: Water
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,10 +121,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1720929723
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 546b880d9d02de741893485af261134f, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: aa9f6c7b61d665d4da71bbe286448528, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

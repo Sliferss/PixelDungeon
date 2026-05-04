@@ -4,6 +4,8 @@ public class LevelGenerator : MonoBehaviour
 {
     public GridManager gridManager;
     public TerrainDatabase terrainDatabase;
+    [SerializeField] private TrapDatabase trapDatabase;
+    [Range(0f, 1f)] public float trapChance = 0.1f;
 
     private void Start()
     {
@@ -34,6 +36,23 @@ public class LevelGenerator : MonoBehaviour
                 tile.Initialize(pos, terrain);
 
                 gridManager.SetTile(pos, tile);
+                if (terrain == terrainDatabase.floor && Random.value < trapChance)
+                {
+                    GameObject trapPrefab = trapDatabase.GetRandomTrap();
+
+                    if (trapPrefab != null)
+                    {
+                        GameObject trapObj = Instantiate(
+                            trapPrefab,
+                            tileObject.transform.position,
+                            Quaternion.identity,
+                            tileObject.transform
+                        );
+
+                        Trap trap = trapObj.GetComponent<Trap>();
+                        tile.SetTrap(trap);
+                    }
+                }
             }
         }
     }
