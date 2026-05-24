@@ -1,9 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FirstFloorDatabase", menuName = "Scriptable Objects/FirstFloorDatabase")]
+[CreateAssetMenu(fileName = "FirstFloorDatabase", menuName = "Databases/Floor/FirstFloorDatabase")]
 public class FirstFloorDatabase : LayerDatabaseBase
 {
-    public GameObject Ground;
+    public GameObject Floor;
 
     public override LayerBase GetLayer(GameObject groundObject)
     {

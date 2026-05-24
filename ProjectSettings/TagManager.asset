@@ -44,17 +44,20 @@ TagManager:
   - name: Background
     uniqueID: 1467939281
     locked: 0
-  - name: Tiles
+  - name: Ground
     uniqueID: 1720929723
     locked: 0
-  - name: Trap
+  - name: Floor
     uniqueID: 4001720529
     locked: 0
-  - name: Units
+  - name: Items
     uniqueID: 53295113
     locked: 0
-  - name: Effects
+  - name: Actors
     uniqueID: 2401480025
+    locked: 0
+  - name: Status
+    uniqueID: 67706303
     locked: 0
   - name: UI
     uniqueID: 208185915

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Tile : MonoBehaviour
+public class Tile
 {
     public bool IsWalkable = false;
     public bool IsSolid = false;
@@ -10,6 +10,7 @@ public class Tile : MonoBehaviour
 
     public LayerBase GroundLayer;
     public LayerBase FloorLayer;
+
     public List<TileBase> StatusLayer = new List<TileBase>();
     public List<TileBase> ItemLayer = new List<TileBase>();
 
@@ -20,22 +21,8 @@ public class Tile : MonoBehaviour
         return Character != null;
     }
 
-    public void OnEnter()
-    {
-        return;
-    }
-
-    public void OnExit() { 
-        return; 
-    }
-
-    public void OnStartTurn()
-    {
-        return;
-    }
-
-    public void OnInteract()
-    {
-        return;
-    }
+    public void OnEnter() { }
+    public void OnExit() { }
+    public void OnStartTurn() { }
+    public void OnInteract() { }
 }

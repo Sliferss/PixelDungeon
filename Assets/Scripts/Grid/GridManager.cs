@@ -15,35 +15,35 @@ public class GridManager : MonoBehaviour
     public Tilemap ActorTilemap;
     public Tilemap StatusTilemap;
 
-    // Tile data matrix
-    public List<List<Tile>> Grid = new List<List<Tile>>();
+    private Grid grid;
+
+    public List<List<Tile>> GridData = new List<List<Tile>>();
 
     private void Awake()
     {
+        grid = GetComponent<Grid>();
         InitializeGrid(Width, Height);
     }
 
-    // =========================
-    // Grid Setup
-    // =========================
+    // =========================================================
+    // GRID SETUP
+    // =========================================================
 
     public void InitializeGrid(int width, int height)
     {
         Width = width;
         Height = height;
 
-        Grid.Clear();
+        GridData.Clear();
 
         for (int y = 0; y < Height; y++)
         {
             List<Tile> row = new List<Tile>();
 
             for (int x = 0; x < Width; x++)
-            {
                 row.Add(null);
-            }
 
-            Grid.Add(row);
+            GridData.Add(row);
         }
     }
 
@@ -58,7 +58,7 @@ public class GridManager : MonoBehaviour
         if (!IsInBounds(x, y))
             return null;
 
-        return Grid[y][x];
+        return GridData[y][x];
     }
 
     public void SetTile(int x, int y, Tile tile)
@@ -66,12 +66,37 @@ public class GridManager : MonoBehaviour
         if (!IsInBounds(x, y))
             return;
 
-        Grid[y][x] = tile;
+        GridData[y][x] = tile;
     }
 
-    // =========================
-    // Layer Placement
-    // =========================
+    // =========================================================
+    // COORDINATES
+    // =========================================================
+
+    public Vector3Int WorldToCell(Vector3 worldPos)
+    {
+        return grid.WorldToCell(worldPos);
+    }
+
+    public Vector3 CellToWorld(Vector3Int cellPos)
+    {
+        return grid.GetCellCenterWorld(cellPos);
+    }
+
+    // =========================================================
+    // TILE CREATION (NOW PURE DATA)
+    // =========================================================
+
+    public Tile CreateTile(int x, int y)
+    {
+        Tile tile = new Tile();
+        SetTile(x, y, tile);
+        return tile;
+    }
+
+    // =========================================================
+    // LAYER PLACEMENT
+    // =========================================================
 
     public void PlaceGround(int x, int y, TileBase tile)
     {
@@ -98,9 +123,9 @@ public class GridManager : MonoBehaviour
         StatusTilemap.SetTile(new Vector3Int(x, y, 0), tile);
     }
 
-    // =========================
-    // Render Functions
-    // =========================
+    // =========================================================
+    // RENDER
+    // =========================================================
 
     public void RenderTile(int x, int y)
     {
@@ -109,25 +134,20 @@ public class GridManager : MonoBehaviour
         if (tile == null)
             return;
 
-        // Ground
         if (tile.GroundLayer != null)
             PlaceGround(x, y, tile.GroundLayer.Tile);
 
-        // Floor
         if (tile.FloorLayer != null)
             PlaceFloor(x, y, tile.FloorLayer.Tile);
 
-        // Items
-        if (tile.ItemLayer.Count > 0)
-            PlaceItem(x, y, tile.ItemLayer[tile.ItemLayer.Count - 1]);
+        if (tile.ItemLayer != null && tile.ItemLayer.Count > 0)
+            PlaceItem(x, y, tile.ItemLayer[^1]);
 
-        // Actor
         if (tile.Character != null)
             PlaceActor(x, y, tile.Character);
 
-        // Status
-        if (tile.StatusLayer.Count > 0)
-            PlaceStatus(x, y, tile.StatusLayer[tile.StatusLayer.Count - 1]);
+        if (tile.StatusLayer != null && tile.StatusLayer.Count > 0)
+            PlaceStatus(x, y, tile.StatusLayer[^1]);
     }
 
     public void RenderAll()
@@ -141,9 +161,7 @@ public class GridManager : MonoBehaviour
         for (int y = 0; y < Height; y++)
         {
             for (int x = 0; x < Width; x++)
-            {
                 RenderTile(x, y);
-            }
         }
     }
 }
