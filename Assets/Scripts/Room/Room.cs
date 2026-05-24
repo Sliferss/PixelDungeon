@@ -3,11 +3,11 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     [Header("Size")]
-    public int MinWidth = 4;
-    public int MaxWidth = 10;
+    public int MinWidth = 7;
+    public int MaxWidth = 14;
 
-    public int MinHeight = 4;
-    public int MaxHeight = 10;
+    public int MinHeight = 7;
+    public int MaxHeight = 14;
 
     [Header("Databases")]
     public FirstGroundDatabase GroundDB;
@@ -112,15 +112,31 @@ public class Room : MonoBehaviour
                 // ------------------------
                 // Rules
                 // ------------------------
-                if (tile.GroundLayer != null)
-                {
-                    tile.IsWalkable = tile.GroundLayer.IsWalkable();
-                    tile.IsSolid = tile.GroundLayer.IsSolid();
-                }
-                else
+                if (tile.GroundLayer == null)
                 {
                     Debug.LogWarning($"[Room] Missing GroundLayer at ({gx},{gy})");
                 }
+
+                bool groundWalkable = false;
+                bool floorWalkable = false;
+
+                bool groundSolid = false;
+                bool floorSolid = false;
+
+                if (tile.GroundLayer != null)
+                {
+                    groundWalkable = tile.GroundLayer.IsWalkable();
+                    groundSolid = tile.GroundLayer.IsSolid();
+                }
+
+                if (tile.FloorLayer != null)
+                {
+                    floorWalkable = tile.FloorLayer.IsWalkable();
+                    floorSolid = tile.FloorLayer.IsSolid();
+                }
+
+                tile.IsWalkable = groundWalkable && floorWalkable;
+                tile.IsSolid = groundSolid || floorSolid;
             }
         }
         // ------------------------

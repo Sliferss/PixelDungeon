@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd9e452ee4dee34fa54baa44e3a626f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinWidth: 4
-  MaxWidth: 10
-  MinHeight: 4
-  MaxHeight: 10
+  MinWidth: 7
+  MaxWidth: 14
+  MinHeight: 7
+  MaxHeight: 14
   GroundDB: {fileID: 11400000, guid: 3abd00ac4f4272f449aedc8259d21932, type: 2}
   FloorDB: {fileID: 11400000, guid: 9d40cac7d34916e4991d12c9b7c67a7e, type: 2}

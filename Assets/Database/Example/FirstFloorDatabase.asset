@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FirstFloorDatabase
   m_EditorClassIdentifier: 
   Floor: {fileID: 3103815846870558447, guid: b5746f3266124fd4b98fa5e08d176a40, type: 3}
+  Door: {fileID: 60562472293387376, guid: 1b64b29fd5c07bc458b4368f9273971e, type: 3}
