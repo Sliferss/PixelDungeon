@@ -46,11 +46,11 @@ public class MapGenerator : MonoBehaviour
             return;
         }
 
-        // Optional: clear previous map state if needed
-        // GridManager.RenderAll(); // only if you want reset visuals
-
         Room.Generate(GridManager, RoomOrigin);
         GridManager.RenderAll();
+
+        // Log the chosen entrance tile
+        Debug.Log($"[MapGenerator] Room entrance is at: {Room.EntranceOrigin}");
     }
 
     // -----------------------------
