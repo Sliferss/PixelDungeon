@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8357a3e82b620114e8ad6175da93a8ca, type: 3}
   m_Name: FirstGroundDatabase
   m_EditorClassIdentifier: 
-  Ground: {fileID: 0}
+  Ground: {fileID: 7167611488745948404, guid: eb1028e871701a744ad40cd839b1e87d, type: 3}
