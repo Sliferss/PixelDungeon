@@ -16,6 +16,8 @@ public class Tile
 
     public TileBase Character;
 
+    public Room Room;
+
     public bool IsOccupied()
     {
         return Character != null;

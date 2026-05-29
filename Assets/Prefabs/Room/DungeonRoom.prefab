@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5653567863360598825}
-  - component: {fileID: 4348939610751076755}
+  - component: {fileID: 2495634409369889493}
   m_Layer: 0
-  m_Name: Room
+  m_Name: DungeonRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4348939610751076755
+--- !u!114 &2495634409369889493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3386789897344485592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd9e452ee4dee34fa54baa44e3a626f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5312fcea6ddbde144a35b63b74df45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinWidth: 7
-  MaxWidth: 14
-  MinHeight: 7
-  MaxHeight: 14
+  MinWidth: 5
+  MaxWidth: 15
+  MinHeight: 5
+  MaxHeight: 15
   GroundDB: {fileID: 11400000, guid: 3abd00ac4f4272f449aedc8259d21932, type: 2}
   FloorDB: {fileID: 11400000, guid: 9d40cac7d34916e4991d12c9b7c67a7e, type: 2}
