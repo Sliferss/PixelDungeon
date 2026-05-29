@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 2495634409369889493, guid: 8473b1be4aec9924485d08b5efdd83c9, type: 3}
     - target: {fileID: 2313958930283858630, guid: 9c6b9e75789760f458b983a3e059d2f9, type: 3}
       propertyPath: RoomCount
-      value: 5
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2313958930283858630, guid: 9c6b9e75789760f458b983a3e059d2f9, type: 3}
       propertyPath: RoomPrefab
